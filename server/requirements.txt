@@ -1,0 +1,10 @@
+boto3
+flask
+flask-cors
+flask-restx
+okta
+okta-jwt-verifier
+python-dotenv
+pydantic
+sendgrid
+twilio
