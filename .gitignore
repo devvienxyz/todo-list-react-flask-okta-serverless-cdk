@@ -6,12 +6,9 @@ data/data.xml
 **/.venv/
 **/venv/
 venv/
-infra/venv_infra/
+
 **/node_modules
 **/__pycache__
-
-# dependencies
-/node_modules
 /.pnp
 .pnp.js
 
@@ -33,3 +30,5 @@ yarn-debug.log*
 yarn-error.log*
 
 client_secrets.json
+
+todos*.md

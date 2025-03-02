@@ -8,3 +8,5 @@ python-dotenv
 pydantic
 sendgrid
 twilio
+pymongo[srv]
+Flask-PyMongo

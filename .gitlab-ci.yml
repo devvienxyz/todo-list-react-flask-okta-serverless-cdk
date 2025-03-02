@@ -1,0 +1,31 @@
+stages:
+  - build
+  - deploy
+
+build:
+  image: node:lts
+  stage: build
+  script:
+    - npm ci
+    - CI=false npm run build
+  artifacts:
+    paths:
+      - build/
+
+pages:
+  image: alpine:latest
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none 
+  script:
+    - mkdir public
+    - mv build/* public/
+    - echo "/authorization-code/callback / 301" > public/_redirects
+    - echo "/* / 200" > public/_redirects
+  artifacts:
+    paths:
+      - public
+  rules:
+    # This ensures that only pushes to the default branch will trigger
+    # a pages deploy
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
